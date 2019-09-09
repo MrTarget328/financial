@@ -1,6 +1,7 @@
 package com.bawei.manager.service.impl;
 
 import com.bawei.entity.Product;
+import com.bawei.manager.error.ErrorEnum;
 import com.bawei.manager.repositories.ProductRepository;
 import com.bawei.manager.service.ProductService;
 import com.bawei.entity.enums.ProductStatus;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -68,14 +68,15 @@ public class ProductServiceImpl implements ProductService {
      * @param product
      */
     private void checkProduct(Product product) {
-        Assert.notNull(product.getName(), "名称不可为空");
-        Assert.notNull(product.getThresholdAmount(), "起投金额不可为空");
-        Assert.notNull(product.getStepAmount(), "投资步长不可为空");
-        Assert.notNull(product.getLockTerm(), "锁定期不可为空");
-        Assert.notNull(product.getRewardRate(), "收益率不可为空");
-        Assert.notNull(product.getStatus(), "状态不可为空");
+        Assert.notNull(product.getName(), ErrorEnum.NAME_NOT_NULL.getCode());
+        Assert.notNull(product.getId(), ErrorEnum.ID_NOT_NULL.getCode());
+        Assert.notNull(product.getThresholdAmount(), ErrorEnum.THRESHOLD_AMOUNT_NOT_NULL.getCode());
+        Assert.notNull(product.getStepAmount(), ErrorEnum.STEP_AMOUNT_NOT_NULL.getCode());
+        Assert.notNull(product.getLockTerm(), ErrorEnum.LOCK_TERM_NOT_NULL.getCode());
+        Assert.notNull(product.getRewardRate(), ErrorEnum.REWARD_RATE_NOT_NULL.getCode());
+        Assert.notNull(product.getStatus(), ErrorEnum.STATUS_NOT_NULL.getCode());
         Assert.isTrue(BigDecimal.ZERO.compareTo(product.getRewardRate())<0
-                && BigDecimal.valueOf(30).compareTo(product.getRewardRate())>=0, "收益率范围错误");
+                && BigDecimal.valueOf(30).compareTo(product.getRewardRate())>=0, ErrorEnum.YIELD_RANGE_ERROR.getCode());
         Assert.isTrue(BigDecimal.valueOf(product.getStepAmount().longValue()).compareTo(product.getStepAmount())==0,
                 "投资步长需为整数");
     }
