@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.bawei.api.main" target="1.8" />
+      <module name="com.bawei.api.test" target="1.8" />
+      <module name="com.bawei.entity.main" target="1.8" />
+      <module name="com.bawei.entity.test" target="1.8" />
+      <module name="com.bawei.manager.main" target="1.8" />
+      <module name="com.bawei.manager.test" target="1.8" />
+      <module name="com.bawei.quartz.main" target="1.8" />
+      <module name="com.bawei.quartz.test" target="1.8" />
+      <module name="com.bawei.seller.main" target="1.8" />
+      <module name="com.bawei.seller.test" target="1.8" />
+      <module name="com.bawei.swagger.main" target="1.8" />
+      <module name="com.bawei.swagger.test" target="1.8" />
+      <module name="com.bawei.util.main" target="1.8" />
+      <module name="com.bawei.util.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
