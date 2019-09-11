@@ -2,6 +2,7 @@ package com.bawei.manager.controller;
 
 import com.bawei.entity.Product;
 import com.bawei.manager.service.ProductService;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class ProductController {
      * @param product
      * @return
      */
+    @ApiOperation(value = "添加产品" ,notes = "添加一个product产品")
     @PostMapping("addProduct")
     public Product addProduct(@RequestBody Product product){
         log.info("创建产品，参数：{}",product);
