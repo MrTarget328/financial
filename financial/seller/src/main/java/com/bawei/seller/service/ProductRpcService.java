@@ -32,11 +32,10 @@ public class ProductRpcService {
         log.info("rpc查询全部产品，结果：{}", result);
         return result;
     }
-
-
-    @PostConstruct
-    public void testFindAll(){
-        findAll();
+    public Product findOne(String id){
+        log.info("rpc查询全部产品，请求：{}", id);
+        Product result = productRpc.queryById(id);
+        log.info("rpc查询全部产品，结果：{}", result);
+        return result;
     }
-
 }

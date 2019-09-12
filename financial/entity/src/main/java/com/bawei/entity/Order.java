@@ -6,6 +6,7 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -26,7 +27,7 @@ public class Order {
      */
     private String orderStatus;
     private String outerOrderId;
-    private String amount;
+    private BigDecimal amount;
     private String memo;
     @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
     private Date createAt;
